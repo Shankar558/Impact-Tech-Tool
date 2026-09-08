@@ -1,0 +1,286 @@
+.projects-gallery {
+  &__filters {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+
+  &__filter {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #4a5568;
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      border-color: #1a2a6c;
+      color: #1a2a6c;
+    }
+
+    &.active {
+      background: #1a2a6c;
+      border-color: #1a2a6c;
+      color: white;
+    }
+  }
+
+  &__grid {
+    margin-bottom: 2rem;
+  }
+
+  &__card {
+    height: 100%;
+  }
+
+  &__empty {
+    text-align: center;
+    padding: 3rem;
+
+    .material-icons {
+      font-size: 3rem;
+      color: #a0aec0;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      color: #4a5568;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: #718096;
+    }
+  }
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 2rem;
+  animation: fadeIn 0.3s ease;
+
+  @media (max-width: 767px) {
+    padding: 1rem;
+    align-items: flex-end;
+  }
+}
+
+.modal {
+  background: white;
+  border-radius: 16px;
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideUp 0.3s ease;
+
+  &__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    background: #1a2a6c;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: #ff6b35;
+      transform: rotate(90deg);
+    }
+
+    .material-icons {
+      color: white;
+      font-size: 1.25rem;
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    @media (max-width: 767px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__image {
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      min-height: 300px;
+
+      @media (max-width: 767px) {
+        min-height: 200px;
+      }
+    }
+  }
+
+  &__details {
+    padding: 2.5rem;
+
+    @media (max-width: 767px) {
+      padding: 1.5rem;
+    }
+  }
+
+  &__tags {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  &__tag {
+    padding: 0.35rem 0.75rem;
+    background: rgba(255, 107, 53, 0.1);
+    color: #ff6b35;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    &--year {
+      background: rgba(26, 42, 108, 0.1);
+      color: #1a2a6c;
+    }
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a2a6c;
+    margin-bottom: 1rem;
+  }
+
+  &__description {
+    font-size: 1rem;
+    color: #4a5568;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  &__client {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: #f8fafc;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+
+    .material-icons {
+      color: #1a2a6c;
+      font-size: 1.5rem;
+    }
+  }
+
+  &__client-label {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #718096;
+    margin-bottom: 0.25rem;
+  }
+
+  &__client-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a2a6c;
+  }
+
+  &__actions {
+    .btn {
+      width: 100%;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  @media (max-width: 767px) {
+    padding: 0 1rem;
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.75rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  cursor: pointer;
+
+  &--primary {
+    background-color: #1a2a6c;
+    color: white;
+    border-color: #1a2a6c;
+
+    &:hover {
+      background-color: #0f1a4a;
+      border-color: #0f1a4a;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(26, 42, 108, 0.3);
+    }
+  }
+
+  .material-icons {
+    font-size: 1.2rem;
+  }
+}

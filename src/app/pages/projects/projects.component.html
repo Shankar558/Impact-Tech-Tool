@@ -1,0 +1,94 @@
+<app-hero
+  title="Our Projects & Products"
+  subtitle="A showcase of our precision manufacturing projects across various industries and applications."
+  [showCTA]="false"
+  [minHeight]="'60vh'">
+</app-hero>
+
+<!-- Projects Gallery -->
+<section class="section projects-gallery" id="projects">
+  <div class="container">
+    <app-section-header
+      subtitle="Portfolio"
+      title="Featured Projects"
+      description="Browse our completed manufacturing projects across different categories and industries.">
+    </app-section-header>
+
+    <!-- Category Filters -->
+    <div class="projects-gallery__filters">
+      <button
+        class="projects-gallery__filter"
+        [class.active]="activeCategory === category"
+        *ngFor="let category of categories"
+        (click)="filterByCategory(category)">
+        {{ category }}
+      </button>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="grid grid--3 projects-gallery__grid">
+      <app-project-card
+        *ngFor="let project of filteredProjects"
+        [project]="project"
+        class="projects-gallery__card"
+        (viewDetails)="onViewDetails($event)">
+      </app-project-card>
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="filteredProjects.length === 0" class="projects-gallery__empty">
+      <span class="material-icons">inbox</span>
+      <h3>No projects found in this category</h3>
+      <p>Please select a different category to view projects.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Project Detail Modal -->
+<div *ngIf="selectedProject" class="modal-backdrop" (click)="closeProjectDetails()">
+  <div class="modal" (click)="$event.stopPropagation()">
+    <button class="modal__close" (click)="closeProjectDetails()" aria-label="Close">
+      <span class="material-icons">close</span>
+    </button>
+
+    <div class="modal__content">
+      <div class="modal__image">
+        <img [src]="selectedProject.image" [alt]="selectedProject.title" (error)="onImageError($event)">
+      </div>
+
+      <div class="modal__details">
+        <div class="modal__tags">
+          <span class="modal__tag">{{ selectedProject.category }}</span>
+          <span *ngIf="selectedProject.year" class="modal__tag modal__tag--year">{{ selectedProject.year }}</span>
+        </div>
+
+        <h2 class="modal__title">{{ selectedProject.title }}</h2>
+
+        <p class="modal__description">{{ selectedProject.description }}</p>
+
+        <div *ngIf="selectedProject.client" class="modal__client">
+          <span class="material-icons">business</span>
+          <div>
+            <span class="modal__client-label">Client</span>
+            <span class="modal__client-name">{{ selectedProject.client }}</span>
+          </div>
+        </div>
+
+        <div class="modal__actions">
+          <a routerLink="/contact" class="btn btn--primary" (click)="closeProjectDetails()">
+            <span class="material-icons">request_quote</span>
+            Request Similar Quote
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<app-cta
+  title="Looking for Similar Manufacturing Solutions?"
+  description="Let us help you with your precision manufacturing needs. Contact our team to discuss your project requirements."
+  primaryButtonText="Request a Quote"
+  secondaryButtonText="Contact Our Team">
+</app-cta>

@@ -1,0 +1,13 @@
+<div class="capability-card">
+  <div class="capability-card__header">
+    <div class="capability-card__icon">
+      <span class="material-icons">{{ capability.icon }}</span>
+    </div>
+    <span *ngIf="showCategory" class="capability-card__category">{{ capability.category }}</span>
+  </div>
+
+  <div class="capability-card__content">
+    <h3 class="capability-card__title">{{ capability.title }}</h3>
+    <p class="capability-card__description">{{ capability.description }}</p>
+  </div>
+</div>

@@ -1,0 +1,122 @@
+<app-hero
+  title="About Impact Tech Tool"
+  subtitle="Precision engineering and manufacturing excellence since our inception, serving automotive and non-automotive industries."
+  [showCTA]="false"
+  [minHeight]="'60vh'">
+</app-hero>
+
+<!-- Company Overview -->
+<section class="section overview" id="overview">
+  <div class="container">
+    <div class="overview__grid">
+      <div class="overview__content">
+        <app-section-header
+          subtitle="Company Overview"
+          title="Who We Are"
+          [centered]="false"
+          description="Impact Tech Tool's core competency is high-accuracy stamping tool design and manufacturing, jigs, fixtures, EDM wire cutting, SPM parts, and prototype part support for automotive and non-automotive industries.">
+        </app-section-header>
+
+        <p class="overview__text">
+          As a dedicated B2B manufacturing and engineering company, we provide end-to-end solutions that span the complete product development cycle - from initial design concepts through to precision manufacturing and final delivery.
+        </p>
+
+        <p class="overview__text">
+          Our commitment to precision, quality, and reliability has made us a trusted partner for companies across the automotive sector and beyond.
+        </p>
+      </div>
+
+      <div class="overview__stats">
+        <div class="overview__stats-container">
+          <app-statistics [statistics]="statistics"></app-statistics>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mission and Vision -->
+<section class="section section--gray mission-vision" id="mission-vision">
+  <div class="container">
+    <div class="mission-vision__grid">
+      <div class="mission-vision__card">
+        <div class="mission-vision__icon">
+          <span class="material-icons">flag</span>
+        </div>
+        <h3 class="mission-vision__title">Our Mission</h3>
+        <p class="mission-vision__text">
+          "Our mission is to exceed customer satisfaction through exceptional services, innovative solutions, and world-class products. We foster a safe, open, and creative culture that values diversity, ethics, and respect for the environment."
+        </p>
+      </div>
+
+      <div class="mission-vision__card">
+        <div class="mission-vision__icon">
+          <span class="material-icons">visibility</span>
+        </div>
+        <h3 class="mission-vision__title">Our Vision</h3>
+        <p class="mission-vision__text">
+          "Our vision is to be the partner of choice for our customers as a leading provider of tools, jigs, fixtures, prototype parts, and stamping assembly products."
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Core Values -->
+<section class="section values" id="values">
+  <div class="container">
+    <app-section-header
+      subtitle="Core Values"
+      title="What Drives Us"
+      description="Our values shape every decision we make and every product we manufacture.">
+    </app-section-header>
+
+    <div class="grid grid--4 values__grid">
+      <div class="values__item" *ngFor="let value of values">
+        <div class="values__icon">
+          <span class="material-icons">{{ value.icon }}</span>
+        </div>
+        <h3 class="values__title">{{ value.title }}</h3>
+        <p class="values__description">{{ value.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Organization Structure -->
+<section class="section section--gray organization" id="organization">
+  <div class="container">
+    <app-section-header
+      subtitle="Our Team"
+      title="Organizational Structure"
+      description="A professional team structure that ensures quality, precision, and reliability in every project.">
+    </app-section-header>
+
+    <div class="organization__structure">
+      <div class="organization__level" *ngFor="let level of getLevels()">
+        <div class="organization__members" [class.organization__members--leader]="level === 1">
+          <div class="organization__member" *ngFor="let member of getMembersByLevel(level)">
+            <div class="organization__member-card">
+              <div class="organization__member-icon">
+                <span class="material-icons">{{ member.icon }}</span>
+              </div>
+              <h4 class="organization__member-role">{{ member.role }}</h4>
+              <p class="organization__member-description">{{ member.description }}</p>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="!isLastLevel(level)" class="organization__connector">
+          <span class="organization__connector-line"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<app-cta
+  title="Partner with Impact Tech Tool"
+  description="Let us help you achieve precision manufacturing excellence with our comprehensive engineering and tooling solutions."
+  primaryButtonText="Request a Quote"
+  secondaryButtonText="Contact Our Team">
+</app-cta>

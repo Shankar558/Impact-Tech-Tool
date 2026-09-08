@@ -1,0 +1,217 @@
+.contact {
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+
+    @media (max-width: 1023px) {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+
+  &__company {
+    margin-bottom: 2rem;
+  }
+
+  &__company-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a2a6c;
+    margin-bottom: 0.5rem;
+  }
+
+  &__company-tagline {
+    font-size: 0.95rem;
+    color: #4a5568;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  &__emails {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  &__email-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: #f8fafc;
+    border-radius: 8px;
+    border-left: 4px solid #1a2a6c;
+
+    .material-icons {
+      color: #1a2a6c;
+      font-size: 1.5rem;
+    }
+  }
+
+  &__email-label {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #718096;
+    margin-bottom: 0.25rem;
+  }
+
+  &__email-address {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a2a6c;
+    text-decoration: none;
+
+    &:hover {
+      color: #ff6b35;
+    }
+  }
+
+  &__enquiries {
+    &-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #1a2a6c;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__enquiry-card {
+    display: flex;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateX(5px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  &__enquiry-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8c5a 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    .material-icons {
+      color: white;
+      font-size: 1.5rem;
+    }
+  }
+
+  &__enquiry-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1a2a6c;
+    margin-bottom: 0.5rem;
+  }
+
+  &__enquiry-description {
+    font-size: 0.85rem;
+    color: #4a5568;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+  }
+
+  &__enquiry-email {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ff6b35;
+    text-decoration: none;
+
+    &:hover {
+      color: #e55a24;
+    }
+  }
+
+  &__form-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    padding: 2.5rem;
+
+    @media (max-width: 767px) {
+      padding: 1.5rem;
+    }
+  }
+
+  &__form-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a2a6c;
+    margin-bottom: 0.5rem;
+  }
+
+  &__form-subtitle {
+    font-size: 0.95rem;
+    color: #4a5568;
+    margin-bottom: 2rem;
+  }
+}
+
+.location {
+  &__card {
+    background: linear-gradient(135deg, #1a2a6c 0%, #0f1a4a 100%);
+    border-radius: 16px;
+    padding: 4rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    }
+  }
+
+  &__placeholder {
+    position: relative;
+    z-index: 2;
+
+    .material-icons {
+      font-size: 4rem;
+      color: #ff6b35;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin: 0;
+    }
+  }
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  @media (max-width: 767px) {
+    padding: 0 1rem;
+  }
+}

@@ -1,0 +1,95 @@
+<app-hero
+  title="Quality First. Always."
+  subtitle="Our commitment to quality drives everything we do - from precision manufacturing to rigorous inspection."
+  [showCTA]="false"
+  [minHeight]="'60vh'">
+</app-hero>
+
+<!-- Quality Focus -->
+<section class="section quality-focus" id="quality">
+  <div class="container">
+    <app-section-header
+      subtitle="Our Quality Focus"
+      title="Quality Is Our Foundation"
+      description="Quality is embedded in every aspect of our manufacturing process, ensuring reliable results every time.">
+    </app-section-header>
+
+    <div class="grid grid--3 quality-focus__grid">
+      <div class="quality-item" *ngFor="let item of qualityFocus">
+        <div class="quality-item__icon">
+          <span class="material-icons">{{ item.icon }}</span>
+        </div>
+        <h3 class="quality-item__title">{{ item.title }}</h3>
+        <p class="quality-item__description">{{ item.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Accuracy Highlight -->
+<section class="section section--dark accuracy" id="accuracy">
+  <div class="container">
+    <div class="accuracy__content">
+      <app-section-header
+        subtitle="Precision Capability"
+        title="Our Accuracy Range"
+        description="We maintain the highest level of dimensional accuracy in all our manufacturing operations."
+        [lightTheme]="true">
+      </app-section-header>
+
+      <div class="accuracy__range">
+        <div class="accuracy__value">5µm</div>
+        <div class="accuracy__line">
+          <div class="accuracy__line-fill"></div>
+        </div>
+        <div class="accuracy__value">10µm</div>
+      </div>
+
+      <p class="accuracy__note">
+        We also meet specialized fixture requirements such as center pitch tolerances below 0.5mm where applicable.
+      </p>
+
+      <div class="accuracy__special">
+        <span class="material-icons">star</span>
+        <div>
+          <h4>Specialized Tolerance Capability</h4>
+          <p>Center pitch tolerances below 0.5mm for precision fixtures</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quality Process -->
+<section class="section process" id="process">
+  <div class="container">
+    <app-section-header
+      subtitle="Quality Process"
+      title="Our Quality Assurance Process"
+      description="A structured quality assurance process that ensures every product meets the highest standards.">
+    </app-section-header>
+
+    <div class="process__grid">
+      <div class="process__step" *ngFor="let step of qualityProcess">
+        <span class="process__step-number">{{ step.step }}</span>
+        <h3 class="process__step-title">{{ step.title }}</h3>
+        <p class="process__step-description">{{ step.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Statistics -->
+<section class="section section--gray stats" id="stats">
+  <div class="container">
+    <app-statistics [statistics]="statistics"></app-statistics>
+  </div>
+</section>
+
+<!-- CTA -->
+<app-cta
+  title="Experience Our Quality Commitment"
+  description="Partner with a manufacturer that prioritizes quality and precision in every project."
+  primaryButtonText="Request a Quote"
+  secondaryButtonText="Contact Our Team">
+</app-cta>

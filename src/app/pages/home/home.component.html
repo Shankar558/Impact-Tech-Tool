@@ -1,0 +1,142 @@
+<app-hero
+  title="Precision Engineering. Reliable Manufacturing."
+  subtitle="One Stop Solution for Design, Stamping Tooling, Fixtures, Gauges and Proto Build."
+  [showCTA]="true">
+</app-hero>
+
+<!-- Company Introduction -->
+<section class="section introduction" id="introduction">
+  <div class="container">
+    <div class="introduction__grid">
+      <div class="introduction__content">
+        <app-section-header
+          subtitle="Who We Are"
+          title="Engineering Excellence Through Precision"
+          [centered]="false"
+          description="Impact Tech Tool specializes in high-accuracy stamping tool design and manufacturing, jigs, fixtures, checking gauges, prototype parts, EDM wire cutting, and custom engineering solutions.">
+        </app-section-header>
+
+        <p class="introduction__text">
+          We support automotive and non-automotive industries with precision-focused manufacturing and end-to-end engineering solutions.
+        </p>
+
+        <div class="introduction__features">
+          <div class="introduction__feature" *ngFor="let feature of ['High Accuracy Stamping Tools', 'Jigs & Fixtures', 'Checking Gauges', 'EDM Wire Cutting', 'Prototype Parts', 'Custom Engineering']">
+            <span class="material-icons">check_circle</span>
+            <span>{{ feature }}</span>
+          </div>
+        </div>
+
+        <a routerLink="/about" class="btn btn--primary btn--large">
+          Learn More About Us
+          <span class="material-icons">arrow_forward</span>
+        </a>
+      </div>
+
+      <div class="introduction__image">
+        <div class="introduction__image-main">
+          <div class="introduction__image-placeholder">
+            <span class="material-icons">precision_manufacturing</span>
+          </div>
+        </div>
+        <div class="introduction__stats">
+          <app-statistics [statistics]="statistics"></app-statistics>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Core Services -->
+<section class="section section--gray services" id="services">
+  <div class="container">
+    <app-section-header
+      subtitle="Our Services"
+      title="Core Manufacturing Services"
+      description="We provide a comprehensive range of precision manufacturing and engineering services to meet your industrial requirements.">
+    </app-section-header>
+
+    <div class="grid grid--3 services__grid">
+      <app-service-card
+        *ngFor="let service of services"
+        [service]="service"
+        class="animate-on-scroll">
+      </app-service-card>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us -->
+<section class="section why-choose" id="why-choose">
+  <div class="container">
+    <app-section-header
+      subtitle="Why Choose Us"
+      title="The Impact Tech Tool Advantage"
+      description="We combine precision engineering expertise with reliable manufacturing processes to deliver exceptional results.">
+    </app-section-header>
+
+    <div class="grid grid--4 why-choose__grid">
+      <div class="why-choose__item animate-on-scroll" *ngFor="let item of whyChooseUs">
+        <div class="why-choose__icon">
+          <span class="material-icons">{{ item.icon }}</span>
+        </div>
+        <h3 class="why-choose__title">{{ item.title }}</h3>
+        <p class="why-choose__description">{{ item.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Manufacturing Capabilities -->
+<section class="section section--dark capabilities" id="capabilities">
+  <div class="container">
+    <app-section-header
+      subtitle="Our Capabilities"
+      title="Manufacturing Capabilities"
+      description="Explore our advanced manufacturing capabilities and precision engineering expertise."
+      [lightTheme]="true">
+    </app-section-header>
+
+    <div class="grid grid--4 capabilities__grid">
+      <app-capability-card
+        *ngFor="let capability of capabilities"
+        [capability]="capability"
+        class="animate-on-scroll">
+      </app-capability-card>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Projects -->
+<section class="section projects" id="projects">
+  <div class="container">
+    <app-section-header
+      subtitle="Featured Work"
+      title="Our Featured Projects"
+      description="A selection of our completed manufacturing projects across various industries.">
+    </app-section-header>
+
+    <div class="grid grid--3 projects__grid">
+      <app-project-card
+        *ngFor="let project of projects"
+        [project]="project"
+        class="animate-on-scroll">
+      </app-project-card>
+    </div>
+
+    <div class="projects__button">
+      <a routerLink="/projects" class="btn btn--secondary btn--large">
+        View All Projects
+        <span class="material-icons">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<app-cta
+  title="Looking for a Reliable Manufacturing Partner?"
+  description="Partner with Impact Tech Tool for precision engineering, tooling, fixtures, gauges, and prototype manufacturing solutions."
+  primaryButtonText="Request a Quote"
+  secondaryButtonText="Contact Our Team">
+</app-cta>

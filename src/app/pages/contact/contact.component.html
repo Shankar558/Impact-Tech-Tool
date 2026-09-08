@@ -1,0 +1,85 @@
+<app-hero
+  title="Contact Us"
+  subtitle="Get in touch with our team for inquiries, quotations, and technical support."
+  [showCTA]="false"
+  [minHeight]="'60vh'">
+</app-hero>
+
+<!-- Contact Section -->
+<section class="section contact" id="contact">
+  <div class="container">
+    <div class="contact__grid">
+      <!-- Contact Info -->
+      <div class="contact__info">
+        <app-section-header
+          subtitle="Get In Touch"
+          title="Contact Information"
+          [centered]="false"
+          description="Reach out to our team for any inquiries. We typically respond within 24 hours.">
+        </app-section-header>
+
+        <!-- Company Contact -->
+        <div class="contact__company">
+          <h3 class="contact__company-name">Impact Tech Tool</h3>
+          <p class="contact__company-tagline">
+            One Stop Solution for Design, Stamping Tooling, Fixtures, Gauges and Proto Build.
+          </p>
+        </div>
+
+        <!-- Email Contacts -->
+        <div class="contact__emails">
+          <div class="contact__email-item" *ngFor="let email of getEmails()">
+            <span class="material-icons">email</span>
+            <div>
+              <span class="contact__email-label">{{ email.label }}</span>
+              <a [href]="'mailto:' + email.address" class="contact__email-address">{{ email.address }}</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Enquiry Types -->
+        <div class="contact__enquiries">
+          <h3 class="contact__enquiries-title">Send Your Enquiry To</h3>
+          <div class="contact__enquiry-card" *ngFor="let enquiry of enquiryTypes">
+            <div class="contact__enquiry-icon">
+              <span class="material-icons">{{ enquiry.icon }}</span>
+            </div>
+            <div class="contact__enquiry-info">
+              <h4 class="contact__enquiry-name">{{ enquiry.title }}</h4>
+              <p class="contact__enquiry-description">{{ enquiry.description }}</p>
+              <a [href]="'mailto:' + enquiry.email" class="contact__enquiry-email">{{ enquiry.email }}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact__form">
+        <div class="contact__form-card">
+          <h2 class="contact__form-title">Send Us an Enquiry</h2>
+          <p class="contact__form-subtitle">Fill out the form and our team will get back to you.</p>
+          <app-contact-form></app-contact-form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Map / Location Section -->
+<section class="section section--gray location" id="location">
+  <div class="container">
+    <app-section-header
+      subtitle="Our Location"
+      title="Visit Our Facility"
+      description="Our manufacturing facility is strategically located to serve our clients efficiently.">
+    </app-section-header>
+
+    <div class="location__card">
+      <div class="location__placeholder">
+        <span class="material-icons">location_on</span>
+        <h3>Impact Tech Tool</h3>
+        <p>Precision Engineering & Manufacturing Facility</p>
+      </div>
+    </div>
+  </div>
+</section>

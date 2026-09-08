@@ -1,0 +1,12 @@
+<div class="section-header" [class.centered]="centered" [class.light-theme]="lightTheme">
+  <span *ngIf="subtitle" class="section-header__subtitle">{{ subtitle }}</span>
+  <h2 class="section-header__title">{{ title }}</h2>
+  <div *ngIf="showDivider" class="section-header__divider">
+    <span class="section-header__divider-line"></span>
+    <span class="section-header__divider-icon">
+      <span class="material-icons">precision_manufacturing</span>
+    </span>
+    <span class="section-header__divider-line"></span>
+  </div>
+  <p *ngIf="description" class="section-header__description">{{ description }}</p>
+</div>

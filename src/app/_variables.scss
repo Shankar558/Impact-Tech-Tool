@@ -1,0 +1,152 @@
+// ============================================
+// IMPACT TECH TOOL - SCSS Variables
+// Industrial B2B Manufacturing Design System
+// ============================================
+
+// Colors - Primary Palette
+$color-primary: #1a2a6c;           // Dark Navy Blue
+$color-primary-light: #2d4373;     // Lighter Navy
+$color-primary-dark: #0f1a4a;      // Darker Navy
+
+// Colors - Accent
+$color-accent: #ff6b35;            // Industrial Orange
+$color-accent-light: #ff8c5a;      // Light Orange
+$color-accent-dark: #e55a24;       // Dark Orange
+
+// Colors - Secondary
+$color-secondary: #4a5568;         // Industrial Grey
+$color-secondary-light: #718096;   // Light Grey
+$color-secondary-dark: #2d3748;    // Dark Grey
+
+// Colors - Neutral
+$color-white: #ffffff;
+$color-black: #000000;
+$color-gray-100: #f7fafc;
+$color-gray-200: #edf2f7;
+$color-gray-300: #e2e8f0;
+$color-gray-400: #cbd5e0;
+$color-gray-500: #a0aec0;
+$color-gray-600: #718096;
+$color-gray-700: #4a5568;
+$color-gray-800: #2d3748;
+$color-gray-900: #1a202c;
+
+// Colors - Status
+$color-success: #38a169;
+$color-warning: #d69e2e;
+$color-error: #e53e3e;
+$color-info: #3182ce;
+
+// Background Colors
+$background-primary: $color-white;
+$background-secondary: $color-gray-100;
+$background-dark: $color-primary-dark;
+
+// Text Colors
+$text-primary: $color-gray-900;
+$text-secondary: $color-gray-600;
+$text-light: $color-gray-500;
+$text-white: $color-white;
+
+// Border Colors
+$border-color: $color-gray-300;
+$border-color-light: $color-gray-200;
+
+// Typography - Font Families
+$font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+$font-family-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$font-family-mono: 'Fira Code', 'Monaco', 'Consolas', monospace;
+
+// Typography - Font Sizes
+$font-size-xs: 0.75rem;     // 12px
+$font-size-sm: 0.875rem;    // 14px
+$font-size-base: 1rem;      // 16px
+$font-size-lg: 1.125rem;    // 18px
+$font-size-xl: 1.25rem;     // 20px
+$font-size-h6: 1rem;
+$font-size-h5: 1.25rem;
+$font-size-h4: 1.5rem;      // 24px
+$font-size-h3: 1.875rem;    // 30px
+$font-size-h2: 2.5rem;      // 40px
+$font-size-h1: 3.5rem;      // 56px
+
+// Typography - Font Weights
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Typography - Line Heights
+$line-height-tight: 1.25;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.75;
+$line-height-heading: 1.2;
+
+// Spacing
+$spacing-xs: 0.25rem;       // 4px
+$spacing-sm: 0.5rem;        // 8px
+$spacing-md: 1rem;          // 16px
+$spacing-lg: 1.5rem;        // 24px
+$spacing-xl: 2rem;          // 32px
+$spacing-xxl: 3rem;         // 48px
+$spacing-xxxl: 4rem;        // 64px
+
+// Container
+$container-max-width: 1280px;
+$container-padding: $spacing-lg;
+
+// Border Radius
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+$border-radius-xl: 16px;
+$border-radius-full: 9999px;
+
+// Shadows
+$shadow-sm: 0 1px 3px rgba($color-black, 0.1);
+$shadow-md: 0 4px 6px rgba($color-black, 0.1);
+$shadow-lg: 0 10px 25px rgba($color-black, 0.15);
+$shadow-xl: 0 20px 40px rgba($color-black, 0.2);
+
+// Transitions
+$transition-fast: 150ms ease;
+$transition-normal: 300ms ease;
+$transition-slow: 500ms ease;
+
+// Z-Index
+$z-index-dropdown: 100;
+$z-index-sticky: 200;
+$z-index-fixed: 300;
+$z-index-modal-backdrop: 400;
+$z-index-modal: 500;
+$z-index-popover: 600;
+$z-index-tooltip: 700;
+
+// Breakpoints
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-large-tablet: 1024px;
+$breakpoint-desktop: 1280px;
+$breakpoint-large-desktop: 1440px;
+
+// Media Query Mixins
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == mobile {
+    @media (max-width: $breakpoint-tablet - 1px) {
+      @content;
+    }
+  } @else if $breakpoint == tablet {
+    @media (max-width: $breakpoint-large-tablet - 1px) {
+      @content;
+    }
+  } @else if $breakpoint == large-tablet {
+    @media (max-width: $breakpoint-desktop - 1px) {
+      @content;
+    }
+  } @else if $breakpoint == desktop {
+    @media (max-width: $breakpoint-large-desktop - 1px) {
+      @content;
+    }
+  }
+}

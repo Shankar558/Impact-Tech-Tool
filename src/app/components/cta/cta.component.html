@@ -1,0 +1,21 @@
+<section class="cta" [class.cta--navy]="variant === 'navy'">
+  <div class="cta__background">
+    <div class="cta__pattern"></div>
+  </div>
+
+  <div class="cta__content">
+    <h2 class="cta__title">{{ title }}</h2>
+    <p class="cta__description">{{ description }}</p>
+
+    <div class="cta__buttons">
+      <a [routerLink]="primaryButtonRoute" class="btn btn--accent btn--large">
+        <span class="material-icons">request_quote</span>
+        {{ primaryButtonText }}
+      </a>
+      <a [routerLink]="secondaryButtonRoute" class="btn btn--secondary btn--large">
+        <span class="material-icons">email</span>
+        {{ secondaryButtonText }}
+      </a>
+    </div>
+  </div>
+</section>

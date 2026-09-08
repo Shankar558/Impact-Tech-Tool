@@ -1,0 +1,89 @@
+<footer class="footer">
+  <div class="footer__main">
+    <div class="container">
+      <div class="footer__grid">
+        <!-- Company Info -->
+        <div class="footer__company">
+          <div class="footer__logo">
+            <span class="footer__logo-icon">IT</span>
+            <div class="footer__logo-text">
+              <span class="footer__company-name">IMPACT TECH TOOL</span>
+              <span class="footer__tagline">Precision Engineering</span>
+            </div>
+          </div>
+          <p class="footer__description">
+            One Stop Solution for Design, Stamping Tooling, Fixtures, Gauges and Proto Build.
+          </p>
+          <div class="footer__social">
+            <a href="#" class="footer__social-link" aria-label="LinkedIn">
+              <span class="material-icons">link</span>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Twitter">
+              <span class="material-icons">tag</span>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Facebook">
+              <span class="material-icons">public</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer__links">
+          <h4 class="footer__title">Quick Links</h4>
+          <ul class="footer__list">
+            <li *ngFor="let link of quickLinks">
+              <a [routerLink]="link.route" class="footer__link">{{ link.label }}</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div class="footer__links">
+          <h4 class="footer__title">Our Services</h4>
+          <ul class="footer__list">
+            <li *ngFor="let service of services">
+              <a routerLink="/services" class="footer__link">{{ service }}</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="footer__contact">
+          <h4 class="footer__title">Contact Us</h4>
+          <div class="footer__contact-item">
+            <span class="material-icons">email</span>
+            <div>
+              <a *ngFor="let email of contactInfo.emails"
+                 [href]="'mailto:' + email"
+                 class="footer__link">
+                {{ email }}
+              </a>
+            </div>
+          </div>
+          <div class="footer__contact-item">
+            <span class="material-icons">phone</span>
+            <a [href]="'tel:' + contactInfo.phone" class="footer__link">{{ contactInfo.phone }}</a>
+          </div>
+          <div class="footer__contact-item">
+            <span class="material-icons">location_on</span>
+            <span>{{ contactInfo.address }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer__bottom">
+    <div class="container">
+      <div class="footer__bottom-content">
+        <p class="footer__copyright">
+          &copy; {{ currentYear }} Impact Tech Tool. All Rights Reserved.
+        </p>
+        <button class="footer__scroll-top" (click)="scrollToTop()" aria-label="Scroll to top">
+          <span class="material-icons">keyboard_arrow_up</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</footer>

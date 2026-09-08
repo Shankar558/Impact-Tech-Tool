@@ -1,0 +1,102 @@
+<app-hero
+  title="Our Manufacturing Infrastructure"
+  subtitle="A complete, modern manufacturing setup equipped for precision engineering and reliable production."
+  [showCTA]="false"
+  [minHeight]="'60vh'">
+</app-hero>
+
+<!-- Infrastructure Areas -->
+<section class="section infrastructure" id="areas">
+  <div class="container">
+    <app-section-header
+      subtitle="Facilities"
+      title="Our Infrastructure"
+      description="Explore our complete manufacturing infrastructure designed for precision and efficiency.">
+    </app-section-header>
+
+    <div class="grid grid--3 infrastructure__grid">
+      <div class="area-card" *ngFor="let area of areas">
+        <div class="area-card__header">
+          <div class="area-card__icon">
+            <span class="material-icons">{{ area.icon }}</span>
+          </div>
+          <h3 class="area-card__title">{{ area.title }}</h3>
+        </div>
+        <p class="area-card__description">{{ area.description }}</p>
+        <div class="area-card__features">
+          <span class="area-card__feature" *ngFor="let feature of area.features">
+            <span class="material-icons">check_circle</span>
+            {{ feature }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Machines -->
+<section class="section section--dark machines" id="machines">
+  <div class="container">
+    <app-section-header
+      subtitle="Machinery"
+      title="VMC Machine Specifications"
+      description="Precision Vertical Machining Centers for demanding manufacturing applications."
+      [lightTheme]="true">
+    </app-section-header>
+
+    <div class="grid grid--2 machines__grid">
+      <div class="machine-card" *ngFor="let machine of machines">
+        <div class="machine-card__header">
+          <div class="machine-card__icon">
+            <span class="material-icons">precision_manufacturing</span>
+          </div>
+          <div class="machine-card__info">
+            <h3 class="machine-card__name">{{ machine.name }}</h3>
+            <span class="machine-card__type">{{ machine.type }}</span>
+          </div>
+        </div>
+
+        <div class="machine-card__specs">
+          <div class="machine-card__spec" *ngFor="let key of getObjectKeys(machine.specifications)">
+            <span class="machine-card__spec-label">{{ key }}</span>
+            <span class="machine-card__spec-value">{{ machine.specifications[key] }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Capability Summary -->
+<section class="section summary" id="summary">
+  <div class="container">
+    <app-section-header
+      subtitle="Our Strength"
+      title="Complete Manufacturing Capability"
+      description="From design to delivery, our infrastructure supports every stage of the manufacturing process.">
+    </app-section-header>
+
+    <div class="summary__grid">
+      <div class="summary__item" *ngFor="let item of [
+        { value: '5µm - 10µm', label: 'Precision Accuracy', icon: 'straighten' },
+        { value: '24/7', label: 'Production Support', icon: 'schedule' },
+        { value: '100%', label: 'Quality Inspection', icon: 'verified' },
+        { value: 'On-time', label: 'Delivery Commitment', icon: 'local_shipping' }
+      ]">
+        <div class="summary__icon">
+          <span class="material-icons">{{ item.icon }}</span>
+        </div>
+        <span class="summary__value">{{ item.value }}</span>
+        <span class="summary__label">{{ item.label }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<app-cta
+  title="Experience Our Manufacturing Capability"
+  description="Partner with us for precision manufacturing solutions backed by a complete, modern infrastructure."
+  primaryButtonText="Request a Quote"
+  secondaryButtonText="Contact Our Team">
+</app-cta>

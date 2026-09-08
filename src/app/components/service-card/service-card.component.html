@@ -1,0 +1,36 @@
+<div class="service-card">
+  <div class="service-card__icon">
+    <span class="material-icons">{{ service.icon }}</span>
+  </div>
+
+  <div class="service-card__content">
+    <h3 class="service-card__title">{{ service.title }}</h3>
+    <p class="service-card__description">{{ service.description }}</p>
+
+    <div *ngIf="showCapabilities && service.capabilities.length > 0" class="service-card__capabilities">
+      <h4 class="service-card__capabilities-title">Key Capabilities:</h4>
+      <ul class="service-card__capabilities-list">
+        <li *ngFor="let capability of service.capabilities">
+          <span class="material-icons">check_circle</span>
+          {{ capability }}
+        </li>
+      </ul>
+    </div>
+
+    <div *ngIf="showIndustries && service.industries.length > 0" class="service-card__industries">
+      <h4 class="service-card__industries-title">Industries Served:</h4>
+      <div class="service-card__industries-tags">
+        <span *ngFor="let industry of service.industries" class="service-card__industry-tag">
+          {{ industry }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="service-card__footer">
+    <a routerLink="/services" class="service-card__link" (click)="onLearnMore()">
+      Learn More
+      <span class="material-icons">arrow_forward</span>
+    </a>
+  </div>
+</div>

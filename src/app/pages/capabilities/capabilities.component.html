@@ -1,0 +1,110 @@
+<app-hero
+  title="Our Manufacturing Capabilities"
+  subtitle="Precision engineering and advanced manufacturing capabilities for demanding industrial applications."
+  [showCTA]="false"
+  [minHeight]="'60vh'">
+</app-hero>
+
+<!-- Precision Capability -->
+<section class="section precision" id="precision">
+  <div class="container">
+    <app-section-header
+      subtitle="Precision Capability"
+      title="Uncompromising Accuracy"
+      description="Our precision manufacturing capability ensures dimensional accuracy that meets the most demanding requirements.">
+    </app-section-header>
+
+    <div class="precision__highlight">
+      <div class="precision__accuracy">
+        <span class="precision__accuracy-icon material-icons">straighten</span>
+        <div class="precision__accuracy-values">
+          <span class="precision__accuracy-value">5µm</span>
+          <span class="precision__accuracy-separator">to</span>
+          <span class="precision__accuracy-value">10µm</span>
+        </div>
+        <span class="precision__accuracy-label">Accuracy Range</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Engineering Scope -->
+<section class="section section--gray scope" id="scope">
+  <div class="container">
+    <app-section-header
+      subtitle="Engineering Scope"
+      title="End-to-End Engineering Solutions"
+      description="We cover the complete engineering scope from initial design to final quality inspection.">
+    </app-section-header>
+
+    <div class="grid grid--5 scope__grid">
+      <div class="scope__item" *ngFor="let item of engineeringScope">
+        <div class="scope__icon">
+          <span class="material-icons">{{ item.icon }}</span>
+        </div>
+        <h3 class="scope__title">{{ item.title }}</h3>
+        <p class="scope__description">{{ item.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Manufacturing Capabilities -->
+<section class="section capabilities" id="capabilities">
+  <div class="container">
+    <app-section-header
+      subtitle="Manufacturing Capabilities"
+      title="What We Manufacture"
+      description="Our manufacturing capabilities cover a wide range of precision engineering and tooling.">
+    </app-section-header>
+
+    <div class="grid grid--4 capabilities__grid">
+      <app-capability-card
+        *ngFor="let capability of capabilities"
+        [capability]="capability"
+        class="capabilities__card">
+      </app-capability-card>
+    </div>
+  </div>
+</section>
+
+<!-- VMC Machines -->
+<section class="section section--dark machines" id="machines">
+  <div class="container">
+    <app-section-header
+      subtitle="Our Machinery"
+      title="VMC Machine Specifications"
+      description="State-of-the-art Vertical Machining Centers for precision manufacturing."
+      [lightTheme]="true">
+    </app-section-header>
+
+    <div class="grid grid--2 machines__grid">
+      <div class="machine-card" *ngFor="let machine of machines">
+        <div class="machine-card__header">
+          <div class="machine-card__icon">
+            <span class="material-icons">precision_manufacturing</span>
+          </div>
+          <div class="machine-card__info">
+            <h3 class="machine-card__name">{{ machine.name }}</h3>
+            <span class="machine-card__type">{{ machine.type }}</span>
+          </div>
+        </div>
+
+        <div class="machine-card__specs">
+          <div class="machine-card__spec" *ngFor="let key of getObjectKeys(machine.specifications)">
+            <span class="machine-card__spec-label">{{ key }}</span>
+            <span class="machine-card__spec-value">{{ machine.specifications[key] }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<app-cta
+  title="Discuss Your Precision Requirements"
+  description="Our engineering team can help you determine the right manufacturing approach for your specific requirements."
+  primaryButtonText="Request a Quote"
+  secondaryButtonText="Contact Our Team">
+</app-cta>

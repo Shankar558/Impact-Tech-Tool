@@ -1,0 +1,38 @@
+<nav class="navbar" [class.scrolled]="isScrolled">
+  <div class="navbar__container">
+    <a class="navbar__logo" routerLink="/">
+      <span class="navbar__logo-icon">IT</span>
+      <div class="navbar__logo-text">
+        <span class="navbar__company-name">IMPACT TECH TOOL</span>
+        <span class="navbar__tagline">Precision Engineering</span>
+      </div>
+    </a>
+
+    <button class="navbar__toggle" (click)="toggleMenu()" [class.active]="isMenuOpen" aria-label="Toggle navigation menu">
+      <span class="navbar__toggle-bar"></span>
+      <span class="navbar__toggle-bar"></span>
+      <span class="navbar__toggle-bar"></span>
+    </button>
+
+    <div class="navbar__menu" [class.active]="isMenuOpen">
+      <ul class="navbar__nav">
+        <li *ngFor="let item of navItems" class="navbar__nav-item">
+          <a class="navbar__nav-link"
+             [routerLink]="item.route"
+             routerLinkActive="active"
+             [routerLinkActiveOptions]="{exact: item.route === '/'}"
+             (click)="closeMenu()">
+            {{ item.label }}
+          </a>
+        </li>
+      </ul>
+
+      <div class="navbar__cta">
+        <a routerLink="/contact" class="btn btn--accent" (click)="closeMenu()">
+          <span class="material-icons">request_quote</span>
+          Request a Quote
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>

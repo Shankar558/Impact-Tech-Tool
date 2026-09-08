@@ -1,0 +1,58 @@
+<app-hero
+  title="Our Manufacturing Services"
+  subtitle="Comprehensive precision manufacturing and engineering services for automotive and non-automotive industries."
+  [showCTA]="false"
+  [minHeight]="'60vh'">
+</app-hero>
+
+<!-- Services Overview -->
+<section class="section services-overview" id="services">
+  <div class="container">
+    <app-section-header
+      subtitle="What We Do"
+      title="Complete Manufacturing Solutions"
+      description="From design to final manufacturing, we provide end-to-end solutions with precision at every step.">
+    </app-section-header>
+
+    <div class="grid grid--2 services-overview__grid">
+      <app-service-card
+        *ngFor="let service of services"
+        [service]="service"
+        [showCapabilities]="true"
+        [showIndustries]="true"
+        class="services-overview__card">
+      </app-service-card>
+    </div>
+  </div>
+</section>
+
+<!-- Process Section -->
+<section class="section section--dark process" id="process">
+  <div class="container">
+    <app-section-header
+      subtitle="Our Process"
+      title="How We Work"
+      description="A structured, quality-focused process that ensures reliable results."
+      [lightTheme]="true">
+    </app-section-header>
+
+    <div class="process__grid">
+      <div class="process__step" *ngFor="let step of processSteps; let i = index">
+        <div class="process__step-number">0{{ i + 1 }}</div>
+        <div class="process__step-icon">
+          <span class="material-icons">{{ step.icon }}</span>
+        </div>
+        <h3 class="process__step-title">{{ step.title }}</h3>
+        <p class="process__step-description">{{ step.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<app-cta
+  title="Need a Custom Manufacturing Solution?"
+  description="Contact our team to discuss your specific requirements and get a tailored solution for your project."
+  primaryButtonText="Request a Quote"
+  secondaryButtonText="Contact Our Team">
+</app-cta>

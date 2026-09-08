@@ -1,0 +1,30 @@
+<div class="project-card">
+  <div class="project-card__image-wrapper">
+    <img
+      [src]="project.image"
+      [alt]="project.title"
+      class="project-card__image"
+      (error)="onImageError($event)"
+    >
+    <div class="project-card__overlay">
+      <button class="project-card__view-btn" (click)="onViewDetails()">
+        <span class="material-icons">visibility</span>
+        View Details
+      </button>
+    </div>
+    <span *ngIf="showCategory" class="project-card__category">{{ project.category }}</span>
+  </div>
+
+  <div class="project-card__content">
+    <h3 class="project-card__title">{{ project.title }}</h3>
+    <p class="project-card__description">{{ project.description }}</p>
+
+    <div class="project-card__footer">
+      <span *ngIf="project.client" class="project-card__client">
+        <span class="material-icons">business</span>
+        {{ project.client }}
+      </span>
+      <span *ngIf="project.year" class="project-card__year">{{ project.year }}</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,314 @@
+// ============================================
+// IMPACT TECH TOOL - SCSS Mixins
+// Reusable mixins for consistent styling
+// ============================================
+
+// Responsive Breakpoints
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == mobile {
+    @media (max-width: 767px) {
+      @content;
+    }
+  } @else if $breakpoint == tablet {
+    @media (max-width: 1023px) {
+      @content;
+    }
+  } @else if $breakpoint == large-tablet {
+    @media (max-width: 1279px) {
+      @content;
+    }
+  } @else if $breakpoint == desktop {
+    @media (min-width: 1280px) {
+      @content;
+    }
+  }
+}
+
+// Flexbox Utilities
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Text Utilities
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin text-clamp($lines: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// Box Shadows
+@mixin shadow($level: 1) {
+  @if $level == 1 {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  } @else if $level == 2 {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.12);
+  } @else if $level == 3 {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.10);
+  } @else if $level == 4 {
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15), 0 5px 10px rgba(0, 0, 0, 0.05);
+  } @else if $level == 5 {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  }
+}
+
+// Border Radius
+@mixin rounded($radius: $border-radius-md) {
+  border-radius: $radius;
+}
+
+// Transitions
+@mixin transition($properties: all, $duration: $transition-normal, $timing: ease) {
+  transition: $properties $duration $timing;
+}
+
+// Gradients
+@mixin gradient-primary {
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+}
+
+@mixin gradient-accent {
+  background: linear-gradient(135deg, $color-accent 0%, $color-accent-light 100%);
+}
+
+@mixin gradient-dark {
+  background: linear-gradient(135deg, $color-gray-900 0%, $color-primary-dark 100%);
+}
+
+// Overlay
+@mixin overlay($color: rgba($color-black, 0.5)) {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $color;
+    z-index: 1;
+  }
+
+  & > * {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+// Container
+@mixin container {
+  width: 100%;
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+
+  @include respond-to(mobile) {
+    padding: 0 $spacing-md;
+  }
+}
+
+// Section Padding
+@mixin section-padding {
+  padding: $spacing-xxxl 0;
+
+  @include respond-to(tablet) {
+    padding: $spacing-xxl 0;
+  }
+
+  @include respond-to(mobile) {
+    padding: $spacing-xl 0;
+  }
+}
+
+// Card Base
+@mixin card-base {
+  background-color: $color-white;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-sm;
+  overflow: hidden;
+  transition: all $transition-normal;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $shadow-lg;
+  }
+}
+
+// Button Base
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-sm $spacing-lg;
+  font-family: $font-family-primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 2px solid transparent;
+  border-radius: $border-radius-sm;
+  cursor: pointer;
+  transition: all $transition-fast;
+  gap: $spacing-sm;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+// Image Zoom Effect
+@mixin image-zoom {
+  overflow: hidden;
+
+  img {
+    transition: transform $transition-slow;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+// Gradient Text
+@mixin gradient-text {
+  background: linear-gradient(135deg, $color-primary 0%, $color-accent 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// Custom Scrollbar
+@mixin custom-scrollbar($width: 8px) {
+  &::-webkit-scrollbar {
+    width: $width;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $color-gray-100;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $color-primary;
+    border-radius: $border-radius-sm;
+
+    &:hover {
+      background: $color-primary-dark;
+    }
+  }
+}
+
+// Focus Styles
+@mixin focus-outline {
+  &:focus {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+  }
+}
+
+// Visually Hidden (Accessibility)
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Print Styles
+@mixin print-styles {
+  @media print {
+    body {
+      font-size: 12pt;
+      color: $color-black;
+    }
+
+    .no-print {
+      display: none !important;
+    }
+
+    a {
+      text-decoration: underline;
+      color: $color-black;
+    }
+
+    img {
+      max-width: 100% !important;
+    }
+  }
+}
+
+// Animation Keyframes
+@mixin animation-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+@mixin animation-slide-up {
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+@mixin animation-slide-down {
+  animation: slideDown 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Material Icon Size
+@mixin icon-size($size: 24px) {
+  .material-icons {
+    font-size: $size;
+  }
+}

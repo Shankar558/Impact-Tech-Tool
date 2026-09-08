@@ -1,0 +1,12 @@
+<div class="statistics" [class.statistics--dark]="darkTheme" #statsContainer>
+  <div class="statistics__grid">
+    <div *ngFor="let stat of statistics" class="statistics__item">
+      <span *ngIf="stat.icon" class="statistics__icon material-icons">{{ stat.icon }}</span>
+      <div class="statistics__value-wrapper">
+        <span class="statistics__value">0</span>
+        <span class="statistics__suffix">{{ stat.suffix }}</span>
+      </div>
+      <span class="statistics__label">{{ stat.label }}</span>
+    </div>
+  </div>
+</div>
